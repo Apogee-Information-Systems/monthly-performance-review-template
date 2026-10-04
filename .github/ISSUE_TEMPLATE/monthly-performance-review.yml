@@ -1,0 +1,49 @@
+name: "CWV: Monthly performance review"
+description: "Run the monthly website performance review for a client."
+title: "Monthly review: <client> — <YYYY-MM>"
+labels: ["cwv", "monthly-review"]
+body:
+  - type: input
+    id: client
+    attributes:
+      label: Client / site
+    validations:
+      required: true
+  - type: input
+    id: period
+    attributes:
+      label: Period (YYYY-MM)
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Overall status
+      options:
+        - Healthy
+        - Needs attention
+        - Critical
+    validations:
+      required: true
+  - type: checkboxes
+    id: agenda
+    attributes:
+      label: Agenda completed
+      options:
+        - label: "Snapshot (counts + status)"
+        - label: "Metric trends (LCP / INP / CLS / score)"
+        - label: "Biggest wins"
+        - label: "Regressions and risks"
+        - label: "Top 3 actions with owners"
+        - label: "Decisions and dependencies"
+        - label: "Client communication summary (3 bullets)"
+  - type: textarea
+    id: actions
+    attributes:
+      label: Top 3 actions (owner + due + success metric)
+    validations:
+      required: true
+  - type: textarea
+    id: client_bullets
+    attributes:
+      label: Client-facing bullets
